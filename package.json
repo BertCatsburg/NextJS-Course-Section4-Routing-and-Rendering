@@ -1,0 +1,39 @@
+{
+    "name": "05-foodies",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "init": "node ./database/javascript/initdb.js",
+        "dev": "next dev --turbopack",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "better-sqlite3": "^11.8.1",
+        "moment": "^2.30.1",
+        "next": "15.2.4",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "slugify": "^1.6.6",
+        "sqlite": "^5.1.1",
+        "sqlite3": "^5.1.7",
+        "uuid": "^11.1.0",
+        "xss": "^1.0.15"
+    },
+    "overrides": {
+        "glob": "11.0.0",
+        "node-gyp": "10.2.0"
+    },
+    "devDependencies": {
+        "@eslint/eslintrc": "^3",
+        "@types/better-sqlite3": "^7.6.12",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "15.1.7",
+        "tsx": "^4.19.3",
+        "typescript": "^5"
+    }
+}
