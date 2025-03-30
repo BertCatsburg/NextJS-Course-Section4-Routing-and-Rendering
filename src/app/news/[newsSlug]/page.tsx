@@ -1,6 +1,7 @@
 import {DUMMY_NEWS} from "@/data/dummy-news";
 import Image from 'next/image'
 import {notFound} from "next/navigation";
+import Link from 'next/link'
 
 type NewsDetailsPageType = {
     params: Promise<{
@@ -20,7 +21,7 @@ const NewsDetailsPage = async ({params}: NewsDetailsPageType) => {
         <article className="news-article">
             <header>
                 <div className="imageContainer">
-                    <Image src={`/images/news/${newsItem.image}`} alt={newsItem.title} fill />
+                    <Link href={`/news/${newsItem.slug}/image`}><Image src={`/images/news/${newsItem.image}`} alt={newsItem.title} fill /></Link>
                 </div>
                 <h1>{newsItem.title}</h1>
                 <time dateTime={newsItem.date}>{newsItem.date}</time>
