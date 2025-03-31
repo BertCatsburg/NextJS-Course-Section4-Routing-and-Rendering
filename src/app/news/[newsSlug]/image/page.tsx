@@ -12,6 +12,7 @@ type ImagePageType = {
 const ImagePage = ({params}: ImagePageType) => {
 
     const newsItemSlug = params.slug
+    console.log(`newsItemSlug = ${newsItemSlug}`)
 
     const newsItem: NewsItemType | undefined = DUMMY_NEWS.find(newsItem => newsItem.slug == newsItemSlug)
 

@@ -11,12 +11,14 @@ type NewsDetailsPageType = {
 
 const NewsDetailsPage = async ({params}: NewsDetailsPageType) => {
     const {newsSlug} = await params
+    console.log(`NEwsSlug = ${newsSlug}`)
     const newsItem = DUMMY_NEWS.find(newsItem => newsItem.slug == newsSlug)
 
     if (!newsItem) {
         notFound()
     }
 
+    // TODO How komt die slug dan in Image terecht ????
     return (
         <article className="news-article">
             <header>
