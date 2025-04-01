@@ -11,7 +11,6 @@ type NewsDetailsPageType = {
 
 const NewsDetailsPage = async ({params}: NewsDetailsPageType) => {
     const {newsSlug} = await params
-    console.log(`NEwsSlug = ${newsSlug}`)
     const newsItem = DUMMY_NEWS.find(newsItem => newsItem.slug == newsSlug)
 
     if (!newsItem) {

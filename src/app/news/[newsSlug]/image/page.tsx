@@ -1,20 +1,19 @@
 import Image from 'next/image'
 import {notFound} from "next/navigation";
 import {NewsItemType} from "@/types/newsItem";
-import { DUMMY_NEWS } from '@/data/dummy-news';
+import {DUMMY_NEWS} from '@/data/dummy-news';
+import Link from 'next/link'
+
 
 type ImagePageType = {
     params: {
-        slug: string
+        newsSlug: string
     }
 }
 
-const ImagePage = ({params}: ImagePageType) => {
-
-    const newsItemSlug = params.slug
-    console.log(`newsItemSlug = ${newsItemSlug}`)
-
-    const newsItem: NewsItemType | undefined = DUMMY_NEWS.find(newsItem => newsItem.slug == newsItemSlug)
+const ImagePage = async ({params}: ImagePageType) => {
+    const {newsSlug} = await params
+    const newsItem: NewsItemType | undefined = DUMMY_NEWS.find(newsItem => newsItem.slug == newsSlug)
 
     if (!newsItem) {
         notFound()
@@ -22,7 +21,9 @@ const ImagePage = ({params}: ImagePageType) => {
 
     return (
         <div className="fullscreen-image">
-            <Image src={`/images/news/${newsItem.image}`} alt={newsItem.title} fill />
+            <Link href={`/news/${newsItem.slug}`}>
+                <Image src={`/images/news/${newsItem.image}`} alt={newsItem.title} fill/>
+            </Link>
         </div>
     )
 }
